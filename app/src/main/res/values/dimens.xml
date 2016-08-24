@@ -4,5 +4,17 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="slidingmenu_offset">60dp</dimen>
     <dimen name="shadow_width">15dp</dimen>
+    <dimen name="silding_photo_height">200dp</dimen>
+    <dimen name="photo_left">20dp</dimen>
+    <dimen name="silding_text_size">20sp</dimen>
+    <dimen name="photo_size">45dp</dimen>
+    <dimen name="silding_samell_size">18sp</dimen>
+    <dimen name="silding_home_left">25dp</dimen>
+    <dimen name="sliding_home_height">60dp</dimen>
+    <dimen name="login_username_paddingleft">8dp</dimen>
+    <dimen name="login_username_marginleft">30dp</dimen>
+    <dimen name="text_white_bg_r">10dp</dimen>
+    <dimen name="login_username_height">40dp</dimen>
+    <dimen name="login_username_pass_padding">10dp</dimen>
 
 </resources>

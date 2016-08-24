@@ -1,11 +1,14 @@
 package com.qihoo.bumppic;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.qihoo.bumppic.login.ActivityLogin;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +34,16 @@ public class MainActivity extends Activity {
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         //为侧滑菜单设置布局
         menu.setMenu(R.layout.layout_left_menu);
+        findViewById(R.id.home_text).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.home_text:
+                Intent intent = new Intent(this, ActivityLogin.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

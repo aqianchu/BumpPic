@@ -1,11 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/ic_launcher"/>
+        android:orientation="vertical"
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/blue"
+            android:layout_height="@dimen/silding_photo_height">
+
+            <ImageView
+                android:layout_width="@dimen/photo_size"
+                android:layout_height="@dimen/photo_size"
+                android:id="@+id/imageView"
+                android:src="@mipmap/ic_launcher"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/linear_photo"
+                android:layout_marginLeft="@dimen/photo_left"
+                android:layout_marginBottom="@dimen/photo_left"
+                />
+
+            <LinearLayout
+                android:id="@+id/linear_photo"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/silding_text_size"
+                android:layout_alignParentStart="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="@dimen/photo_left"
+                    android:text="User"
+                    android:textSize="@dimen/silding_text_size"
+                    android:textColor="@color/white"
+                    android:id="@+id/user_textview" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="@dimen/photo_left"
+                    android:text="adming/adimn.com"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/silding_samell_size"
+                    android:id="@+id/user_email" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:background="@color/hui_33"
+
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/sliding_home_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home"
+                    android:layout_marginLeft="@dimen/silding_home_left"
+                    android:textSize="@dimen/silding_text_size"
+                    android:id="@+id/home_text" />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/hui_dd"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/silding_home_left"
+                />
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/sliding_home_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recommended"
+                    android:layout_marginLeft="@dimen/silding_home_left"
+                    android:textSize="@dimen/silding_text_size"
+                    android:id="@+id/recommend_text" />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/hui_dd"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/silding_home_left"
+                />
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/sliding_home_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pengpeng"
+                    android:layout_marginLeft="@dimen/silding_home_left"
+                    android:textSize="@dimen/silding_text_size"
+                    android:id="@+id/pengpeng_text" />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/hui_dd"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/silding_home_left"
+                />
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/sliding_home_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/social"
+                    android:layout_marginLeft="@dimen/silding_home_left"
+                    android:textSize="@dimen/silding_text_size"
+                    android:id="@+id/social_text" />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/hui_dd"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/silding_home_left"
+                />
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/sliding_home_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting"
+                    android:layout_marginLeft="@dimen/silding_home_left"
+                    android:textSize="@dimen/silding_text_size"
+                    android:id="@+id/setting_text" />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/hui_dd"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/silding_home_left"
+                />
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/sliding_home_height">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_us"
+                    android:layout_marginLeft="@dimen/silding_home_left"
+                    android:textSize="@dimen/silding_text_size"
+                    android:id="@+id/about_us_text" />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/hui_dd"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/silding_home_left"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
