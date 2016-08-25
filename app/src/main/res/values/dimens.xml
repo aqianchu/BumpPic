@@ -6,9 +6,9 @@
     <dimen name="shadow_width">15dp</dimen>
     <dimen name="silding_photo_height">200dp</dimen>
     <dimen name="photo_left">20dp</dimen>
-    <dimen name="silding_text_size">20sp</dimen>
+    <dimen name="silding_text_size">20dp</dimen>
     <dimen name="photo_size">45dp</dimen>
-    <dimen name="silding_samell_size">18sp</dimen>
+    <dimen name="silding_samell_size">18dp</dimen>
     <dimen name="silding_home_left">25dp</dimen>
     <dimen name="sliding_home_height">60dp</dimen>
     <dimen name="login_username_paddingleft">8dp</dimen>
@@ -17,13 +17,15 @@
     <dimen name="login_username_height">46dp</dimen>
     <dimen name="login_username_pass_padding">10dp</dimen>
     <dimen name="login_title_height">60dp</dimen>
-    <dimen name="login_text_size">22sp</dimen>
-    <dimen name="login_title_text_small">19sp</dimen>
+    <dimen name="login_text_size">22dp</dimen>
+    <dimen name="login_title_text_small">19dp</dimen>
     <dimen name="regist_right_margin">10dp</dimen>
-    <dimen name="login_login_margintop">24dp</dimen>
-    <dimen name="weixin_size">35dp</dimen>
+    <dimen name="login_login_margintop">27dp</dimen>
+    <dimen name="weixin_size">40dp</dimen>
     <dimen name="weixin_paddingleft">8dp</dimen>
     <dimen name="weixin_padding_top">5dp</dimen>
     <dimen name="weixintext2weixinicon_padding">2dp</dimen>
+    <dimen name="weixin_size_small">30dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 </resources>

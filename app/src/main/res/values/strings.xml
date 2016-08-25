@@ -7,7 +7,7 @@
     <string name="setting">设置</string>
     <string name="about_us">关于我们</string>
     <string name="user_name">用户名</string>
-    <string name="password"><![CDATA[ 密码]]></string>
+    <string name="password">密码</string>
     <string name="login">登陆</string>
     <string name="login_san_msg">通过第三方账号登陆</string>
     <string name="email_phone">邮箱/手机号</string>
@@ -15,4 +15,10 @@
     <string name="browse_idle">随意浏览</string>
     <string name="other_login_way">其他登陆方式</string>
     <string name="weixin">微信</string>
+    <string name="title_activity_activity_start">ActivityStart</string>
+    <string name="title_activity_activity_register">ActivityRegister</string>
+    <string name="register"><![CDATA[  注册]]></string>
+    <string name="confirm_password">确认密码</string>
+    <string name="email_phone_msg">请输入邮箱或手机号</string>
+    <string name="password_msg">请输入6-20位密码</string>
 </resources>

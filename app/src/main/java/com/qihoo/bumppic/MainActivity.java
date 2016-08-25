@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.qihoo.bumppic.login.ActivityLogin;
+import com.qihoo.bumppic.login.ActivityRegister;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -34,15 +35,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         //为侧滑菜单设置布局
         menu.setMenu(R.layout.layout_left_menu);
-        findViewById(R.id.home_text).setOnClickListener(this);
+        findViewById(R.id.home_linearlayout).setOnClickListener(this);
+        findViewById(R.id.recommended_linearlayout).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.home_text:
+            case R.id.home_linearlayout:
                 Intent intent = new Intent(this, ActivityLogin.class);
                 startActivity(intent);
+                break;
+            case R.id.recommended_linearlayout:
+                startActivity(new Intent(this, ActivityRegister.class));
                 break;
         }
     }
