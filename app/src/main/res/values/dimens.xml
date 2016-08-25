@@ -14,7 +14,16 @@
     <dimen name="login_username_paddingleft">8dp</dimen>
     <dimen name="login_username_marginleft">30dp</dimen>
     <dimen name="text_white_bg_r">10dp</dimen>
-    <dimen name="login_username_height">40dp</dimen>
+    <dimen name="login_username_height">46dp</dimen>
     <dimen name="login_username_pass_padding">10dp</dimen>
+    <dimen name="login_title_height">60dp</dimen>
+    <dimen name="login_text_size">22sp</dimen>
+    <dimen name="login_title_text_small">19sp</dimen>
+    <dimen name="regist_right_margin">10dp</dimen>
+    <dimen name="login_login_margintop">24dp</dimen>
+    <dimen name="weixin_size">35dp</dimen>
+    <dimen name="weixin_paddingleft">8dp</dimen>
+    <dimen name="weixin_padding_top">5dp</dimen>
+    <dimen name="weixintext2weixinicon_padding">2dp</dimen>
 
 </resources>

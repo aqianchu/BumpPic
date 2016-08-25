@@ -10,4 +10,9 @@
     <string name="password"><![CDATA[ 密码]]></string>
     <string name="login">登陆</string>
     <string name="login_san_msg">通过第三方账号登陆</string>
+    <string name="email_phone">邮箱/手机号</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="browse_idle">随意浏览</string>
+    <string name="other_login_way">其他登陆方式</string>
+    <string name="weixin">微信</string>
 </resources>

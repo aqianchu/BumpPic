@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="line">
+    android:shape="rectangle"
+    >
 
     <corners android:bottomLeftRadius="@dimen/text_white_bg_r"
         android:bottomRightRadius="@dimen/text_white_bg_r"
-        android:topLeftRadius="@dimen/text_white_bg_r"
         android:topRightRadius="@dimen/text_white_bg_r"
-        />
-
-    <stroke android:width="1dp"
-        android:color="@color/white"
+        android:topLeftRadius="@dimen/text_white_bg_r"
         />
     <solid android:color="@color/transparent"/>
-
+    <stroke android:width="1dp"
+        android:color="@color/white"/>
 </shape>

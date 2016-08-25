@@ -7,4 +7,5 @@
     <color name="blue">#330000ff</color>
     <color name="hui_dd">#33333333</color>
     <color name="hui_33">#22ddddee</color>
+    <color name="transparent">#00000000</color>
 </resources>

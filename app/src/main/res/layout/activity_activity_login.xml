@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
     android:gravity="center_vertical"
     tools:context="com.qihoo.bumppic.login.ActivityLogin">
 
@@ -10,20 +11,48 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/text_white_bg_r"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="@dimen/login_title_height">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/login_text_size"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注册"
+                android:textColor="@color/white"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/regist_right_margin"
+                android:layout_marginRight="@dimen/regist_right_margin"
+                android:textSize="@dimen/login_title_text_small"
+                />
+        </RelativeLayout>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="@dimen/login_username_height"
             android:inputType="textPersonName"
-            android:hint="@string/user_name"
+            android:hint="@string/email_phone"
             android:background="@drawable/text_white_bg"
             android:singleLine="true"
+            android:textColorHint="@color/white"
             android:ems="10"
             android:gravity="center_vertical"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="@dimen/login_username_marginleft"
             android:layout_marginStart="@dimen/login_username_marginleft"
             android:layout_marginRight="@dimen/login_username_marginleft"
@@ -38,6 +67,7 @@
             android:layout_height="@dimen/login_username_height"
             android:inputType="textPassword"
             android:ems="10"
+            android:textColorHint="@color/white"
             android:layout_marginTop="@dimen/login_username_pass_padding"
             android:background="@drawable/text_white_bg"
             android:hint="@string/password"
@@ -49,38 +79,179 @@
             android:layout_gravity="center_horizontal" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_username_height"
             android:text="@string/login"
             android:id="@+id/button"
+            android:textColor="@color/white"
+            android:textSize="@dimen/login_title_text_small"
+            android:background="@drawable/text_transpranent_whiteedge"
+            android:layout_marginTop="@dimen/login_login_margintop"
+            android:layout_marginLeft="@dimen/login_username_marginleft"
+            android:layout_marginStart="@dimen/login_username_marginleft"
+            android:layout_marginRight="@dimen/login_username_marginleft"
+            android:layout_marginEnd="@dimen/login_username_marginleft"
             android:layout_gravity="center_horizontal" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/login_san_msg"
-            android:id="@+id/textView"
-            android:layout_gravity="center_horizontal" />
-
-        <LinearLayout
+        <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:gravity="center_horizontal"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal">
+            android:gravity="bottom"
 
-            <Button
+            android:layout_height="60dp">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="微信"
-                android:id="@+id/button2" />
+                android:text="@string/forget_password"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/login_username_marginleft"
+                android:layout_marginStart="@dimen/login_username_marginleft"
+                android:textSize="@dimen/login_title_text_small"
+                android:id="@+id/textView2" />
 
-            <Button
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="新浪微博"
-                android:id="@+id/button3" />
-        </LinearLayout>
+                android:layout_alignParentRight="true"
+                android:textColor="@color/white"
+                android:layout_marginRight="@dimen/login_username_marginleft"
+                android:layout_marginEnd="@dimen/login_username_marginleft"
+                android:textSize="@dimen/login_title_text_small"
+                android:text="@string/browse_idle"
+                android:id="@+id/textView3" />
+        </RelativeLayout>
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_marginLeft="@dimen/login_username_marginleft"
+           android:layout_marginStart="@dimen/login_username_marginleft"
+           android:layout_marginRight="@dimen/login_username_marginleft"
+           android:layout_marginEnd="@dimen/login_username_marginleft"
+           android:layout_height="match_parent">
+
+           <RelativeLayout
+
+               android:id="@+id/login_bottom_qita"
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               android:gravity="center_vertical"
+               android:layout_above="@+id/bottom_login"
+               android:layout_height="50dp">
+
+               <View
+                   android:layout_width="match_parent"
+                   android:background="@color/white"
+                   android:layout_centerVertical="true"
+                   android:layout_toLeftOf="@+id/qitadenglufangshi"
+                   android:layout_height="1dp"/>
+               <TextView
+                   android:id="@+id/qitadenglufangshi"
+                   android:layout_width="wrap_content"
+                   android:layout_centerVertical="true"
+                   android:layout_centerHorizontal="true"
+                   android:textSize="@dimen/login_title_text_small"
+                   android:textColor="@color/white"
+                   android:text="@string/other_login_way"
+                   android:layout_height="wrap_content" />
+               <View
+                   android:layout_width="match_parent"
+                   android:layout_centerVertical="true"
+                   android:layout_toRightOf="@+id/qitadenglufangshi"
+                   android:background="@color/white"
+                   android:layout_height="1dp"/>
+           </RelativeLayout>
+
+           <LinearLayout
+               android:id="@+id/bottom_login"
+               android:layout_alignParentBottom="true"
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               android:layout_marginLeft="4dp"
+               android:gravity="center_vertical"
+               android:layout_marginBottom="15dp"
+               android:layout_height="60dp">
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:paddingLeft="@dimen/weixin_paddingleft"
+                   android:paddingRight="@dimen/weixin_paddingleft"
+                   android:paddingBottom="@dimen/weixin_padding_top"
+                   android:paddingTop="@dimen/weixin_padding_top"
+                   android:background="@drawable/text_transpranent_whiteedge"
+                   android:gravity="center_vertical"
+                   android:orientation="horizontal">
+                   <ImageView
+                       android:src="@drawable/icon_weixin"
+                       android:layout_width="@dimen/weixin_size"
+                       android:layout_height="@dimen/weixin_size" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weixin"
+                        android:layout_marginLeft="@dimen/weixintext2weixinicon_padding"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/login_title_text_small"
+                        />
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="4dp"
+                   android:layout_weight="1"
+                   android:paddingLeft="@dimen/weixin_paddingleft"
+                   android:paddingRight="@dimen/weixin_paddingleft"
+                   android:paddingBottom="@dimen/weixin_padding_top"
+                   android:paddingTop="@dimen/weixin_padding_top"
+                   android:background="@drawable/text_transpranent_whiteedge"
+                   android:gravity="center_vertical"
+                   android:orientation="horizontal">
+                   <ImageView
+                       android:src="@drawable/icon_weibo"
+                       android:layout_width="@dimen/weixin_size"
+                       android:layout_height="@dimen/weixin_size" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/weixin"
+                       android:layout_marginLeft="@dimen/weixintext2weixinicon_padding"
+                       android:textColor="@color/white"
+                       android:textSize="@dimen/login_title_text_small"
+                       />
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginLeft="4dp"
+                   android:layout_weight="1"
+                   android:paddingLeft="@dimen/weixin_paddingleft"
+                   android:paddingRight="@dimen/weixin_paddingleft"
+                   android:paddingBottom="@dimen/weixin_padding_top"
+                   android:paddingTop="@dimen/weixin_padding_top"
+                   android:background="@drawable/text_transpranent_whiteedge"
+                   android:gravity="center_vertical"
+                   android:orientation="horizontal">
+                   <ImageView
+                       android:src="@drawable/icon_qq"
+                       android:layout_width="@dimen/weixin_size"
+                       android:layout_height="@dimen/weixin_size" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/weixin"
+                       android:layout_marginLeft="@dimen/weixintext2weixinicon_padding"
+                       android:textColor="@color/white"
+                       android:textSize="@dimen/login_title_text_small"
+                       />
+               </LinearLayout>
+           </LinearLayout>
+       </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
