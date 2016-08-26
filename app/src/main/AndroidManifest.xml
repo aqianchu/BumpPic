@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".login.ActivityLogin" />
         <activity
             android:name=".ActivityStart"
@@ -23,7 +23,8 @@
         <activity
             android:name=".login.ActivityRegister"
             android:label="@string/title_activity_activity_register"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ActivitySearch"></activity>
     </application>
 
 </manifest>

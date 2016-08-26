@@ -13,7 +13,7 @@
     <dimen name="sliding_home_height">60dp</dimen>
     <dimen name="login_username_paddingleft">8dp</dimen>
     <dimen name="login_username_marginleft">30dp</dimen>
-    <dimen name="text_white_bg_r">10dp</dimen>
+    <dimen name="text_white_bg_r">5dp</dimen>
     <dimen name="login_username_height">46dp</dimen>
     <dimen name="login_username_pass_padding">10dp</dimen>
     <dimen name="login_title_height">60dp</dimen>
@@ -29,5 +29,12 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="title_text_size">20dp</dimen>
     <dimen name="home_title_margin">10dp</dimen>
+    <dimen name="home_more_height">25dp</dimen>
+    <dimen name="home_more_margin">10dp</dimen>
+    <dimen name="home_zuijin_height">45dp</dimen>
 
+    <dimen name="home_item_height">210dp</dimen>
+    <dimen name="home_item_portait">35dp</dimen>
+    <dimen name="home_item_marginleft">10dp</dimen>
+    <dimen name="home_item_text_size">18dp</dimen>
 </resources>

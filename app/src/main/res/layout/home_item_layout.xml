@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/home_item_height">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/home_item_bg"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp">
+
+        <FrameLayout
+            android:id="@+id/home_item_framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_picture1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="@dimen/home_item_marginleft"
+                android:layout_gravity="left|bottom">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@mipmap/ic_launcher"
+                        android:layout_width="@dimen/home_item_portait"
+                        android:layout_height="@dimen/home_item_portait"
+                        android:id="@+id/imageView2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="User1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="bottom"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/home_item_text_size"
+                        android:id="@+id/textView4" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="风景"
+                        android:layout_marginLeft="5dp"
+                        android:paddingLeft="6dp"
+                        android:layout_gravity="bottom"
+                        android:paddingRight="6dp"
+                        android:background="@drawable/text_white_bg"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/home_item_text_size"
+                        android:id="@+id/textView5" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content"
+                    android:text="四月赏樱花,十月看红叶"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/home_item_text_size"
+                    android:id="@+id/textView" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

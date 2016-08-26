@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.qihoo.bumppic.MainActivity">
 
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:gravity="center_vertical"
         android:background="@color/black"
         android:layout_height="@dimen/login_title_height"
         android:id="@+id/relativeLayout">
         <Button
             android:layout_margin="@dimen/home_title_margin"
-            android:layout_width="@dimen/login_username_height"
-            android:layout_height="@dimen/login_username_height"
-            android:text="三"
+            android:layout_width="@dimen/home_more_height"
+            android:layout_height="@dimen/home_more_height"
+            android:background="@drawable/more"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/home_more_margin"
             android:id="@+id/toggle_sliding" />
 
         <TextView
@@ -28,14 +30,72 @@
             android:layout_centerInParent="true"
             android:textSize="@dimen/title_text_size"
             />
+        <Button
+            android:layout_width="@dimen/home_more_height"
+            android:layout_height="@dimen/home_more_height"
+            android:background="@drawable/search"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/home_more_margin"
+            />
     </RelativeLayout>
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/relativeLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <RadioGroup
+            android:id="@+id/radiogroup_home"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:layout_height="@dimen/home_zuijin_height">
+            <RadioButton
+                android:id="@+id/radiobt_home_recent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/recent"
+                android:gravity="center"
+                android:textSize="@dimen/login_title_text_small"
+                android:textColor="@android:color/black"
+                android:button="@null"
+                android:checked="true"
+                android:background="@drawable/home_line_selector"
+                android:layout_height="match_parent" />
+            <RadioButton
+                android:id="@+id/radiobt_home_hot"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/hot"
+                android:gravity="center"
+                android:textSize="@dimen/login_title_text_small"
+                android:textColor="@android:color/black"
+                android:button="@null"
+                android:background="@drawable/home_line_selector"
+                android:layout_height="match_parent" />
+            <RadioButton
+                android:id="@+id/radiobt_home_specialattention"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/specil_attation"
+                android:gravity="center"
+                android:textSize="@dimen/login_title_text_small"
+                android:textColor="@android:color/black"
+                android:button="@null"
+                android:background="@drawable/home_line_selector"
+                android:layout_height="match_parent" />
+        </RadioGroup>
+
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            android:id="@+id/pulltofreshlistview_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+    </LinearLayout>
+</LinearLayout>

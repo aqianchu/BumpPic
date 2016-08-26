@@ -21,4 +21,7 @@
     <string name="confirm_password">确认密码</string>
     <string name="email_phone_msg">请输入邮箱或手机号</string>
     <string name="password_msg">请输入6-20位密码</string>
+    <string name="recent">最近</string>
+    <string name="hot">热门</string>
+    <string name="specil_attation">特别关注</string>
 </resources>
