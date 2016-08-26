@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:src="@mipmap/ic_launcher"
+                        android:src="@drawable/potrait"
                         android:layout_width="@dimen/home_item_portait"
                         android:layout_height="@dimen/home_item_portait"
                         android:id="@+id/imageView2" />
