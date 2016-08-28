@@ -27,7 +27,7 @@
     <dimen name="weixintext2weixinicon_padding">2dp</dimen>
     <dimen name="weixin_size_small">30dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="title_text_size">20dp</dimen>
+    <dimen name="title_text_size">22dp</dimen>
     <dimen name="home_title_margin">10dp</dimen>
     <dimen name="home_more_height">25dp</dimen>
     <dimen name="home_more_margin">10dp</dimen>
@@ -40,4 +40,7 @@
     <dimen name="sliding_text_margin">10dp</dimen>
     <dimen name="sliding_item_img_height">30dp</dimen>
     <dimen name="sliding_item_marginleft">25dp</dimen>
+    <dimen name="title_marginleft">12dp</dimen>
+
+    <dimen name="title_height">65dp</dimen>
 </resources>
