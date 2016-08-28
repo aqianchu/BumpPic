@@ -1,18 +1,23 @@
 package com.qihoo.bumppic;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.qihoo.bumppic.adapter.HomeAdapter;
+import com.qihoo.bumppic.adapter.HomeFragmentPagerAdapter;
+import com.qihoo.bumppic.frgment.HotFragment;
+import com.qihoo.bumppic.frgment.RecentFragment;
+import com.qihoo.bumppic.frgment.SpecialAttentionFragment;
 import com.qihoo.bumppic.login.ActivityLogin;
 import com.qihoo.bumppic.login.ActivityRegister;
 import com.qihoo.bumppic.utils.ToastUtils;
@@ -21,15 +26,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends Activity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends FragmentActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
 
     private SlidingMenu menu;
-    private PullToRefreshListView ptrListView;
     private RadioGroup radiogroup;
     private RadioButton recent_rbt;
     private RadioButton hot_rbt;
     private RadioButton sa_rbt;
-    private List<Integer>datas;
+    private FragmentPagerAdapter fpAdapter;
+    private ViewPager mViewPage;
+    private HotFragment hotf;
+    private RecentFragment recentF;
+    private SpecialAttentionFragment saF;
+    private List<Fragment>lists;
 
 
     @Override
@@ -38,29 +47,30 @@ public class MainActivity extends Activity implements View.OnClickListener, Radi
         setContentView(R.layout.activity_main);
 
         setSliding();
-        setData();
+        initFragment();
         setView();
         setListener();
     }
 
-    int[] imgs = new int[]{R.drawable.background_picture1,R.drawable.background_picture3,R.drawable.background_picture4,
-    R.drawable.background_picture6,R.drawable.background_picture8};
-
-    private void setData(){
-        datas = new ArrayList<Integer>();
-        for (int i=0;i<imgs.length;i++){
-            datas.add(imgs[i]);
-        }
+    private void initFragment() {
+        lists = new ArrayList<Fragment>();
+        recentF = new RecentFragment();
+        hotf = new HotFragment();
+        saF = new SpecialAttentionFragment();
+        lists.add(recentF);lists.add(hotf);lists.add(saF);
     }
 
+
+
     private void setView() {
-        ptrListView = (PullToRefreshListView)findViewById(R.id.pulltofreshlistview_home);
-        ptrListView.setAdapter(new HomeAdapter(this,datas));
-        ptrListView.setMode(PullToRefreshBase.Mode.BOTH);
         radiogroup = (RadioGroup)findViewById(R.id.radiogroup_home);
         recent_rbt = (RadioButton)findViewById(R.id.radiobt_home_recent);
         hot_rbt = (RadioButton)findViewById(R.id.radiobt_home_hot);
         sa_rbt = (RadioButton)findViewById(R.id.radiobt_home_specialattention);
+        mViewPage = (ViewPager)findViewById(R.id.viewpager_home);
+        mViewPage.setAdapter(new HomeFragmentPagerAdapter(getSupportFragmentManager(),lists));
+        mViewPage.setCurrentItem(0);
+        mViewPage.setOnPageChangeListener(this);
     }
 
     private void setListener() {
@@ -123,25 +133,60 @@ public class MainActivity extends Activity implements View.OnClickListener, Radi
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        changeHomeRecentLine(i);
+        changeHomeSelected(i);
     }
-    private void changeHomeRecentLine(int i){
+    private void changeHomeSelected(int i){
         switch (i){
             case R.id.radiobt_home_recent:
                 recent_rbt.setChecked(true);
                 hot_rbt.setChecked(false);
                 sa_rbt.setChecked(false);
+                mViewPage.setCurrentItem(0);
                 break;
             case R.id.radiobt_home_hot:
                 recent_rbt.setChecked(false);
                 hot_rbt.setChecked(true);
                 sa_rbt.setChecked(false);
+                mViewPage.setCurrentItem(1);
                 break;
             case R.id.radiobt_home_specialattention:
                 recent_rbt.setChecked(false);
                 hot_rbt.setChecked(false);
                 sa_rbt.setChecked(true);
+                mViewPage.setCurrentItem(2);
+                break;
+            case 0:
+                recent_rbt.setChecked(true);
+                hot_rbt.setChecked(false);
+                sa_rbt.setChecked(false);
+                break;
+            case 1:
+                recent_rbt.setChecked(false);
+                hot_rbt.setChecked(true);
+                sa_rbt.setChecked(false);
+                break;
+            case 2:
+                recent_rbt.setChecked(false);
+                hot_rbt.setChecked(false);
+                sa_rbt.setChecked(true);
+                break;
+            default:
                 break;
         }
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        changeHomeSelected(position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }

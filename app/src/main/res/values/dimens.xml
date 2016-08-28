@@ -5,11 +5,11 @@
     <dimen name="slidingmenu_offset">60dp</dimen>
     <dimen name="shadow_width">15dp</dimen>
     <dimen name="silding_photo_height">200dp</dimen>
-    <dimen name="photo_left">20dp</dimen>
+    <dimen name="photo_left">10dp</dimen>
     <dimen name="silding_text_size">20dp</dimen>
     <dimen name="photo_size">45dp</dimen>
     <dimen name="silding_samell_size">18dp</dimen>
-    <dimen name="silding_home_left">25dp</dimen>
+    <dimen name="silding_home_left">10dp</dimen>
     <dimen name="sliding_home_height">60dp</dimen>
     <dimen name="login_username_paddingleft">8dp</dimen>
     <dimen name="login_username_marginleft">30dp</dimen>
@@ -37,4 +37,7 @@
     <dimen name="home_item_portait">35dp</dimen>
     <dimen name="home_item_marginleft">10dp</dimen>
     <dimen name="home_item_text_size">18dp</dimen>
+    <dimen name="sliding_text_margin">10dp</dimen>
+    <dimen name="sliding_item_img_height">30dp</dimen>
+    <dimen name="sliding_item_marginleft">25dp</dimen>
 </resources>

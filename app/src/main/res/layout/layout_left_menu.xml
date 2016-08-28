@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/black"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -10,20 +12,10 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:background="@color/blue"
+            android:background="@drawable/side_background_1"
             android:layout_height="@dimen/silding_photo_height">
 
-            <ImageView
-                android:layout_width="@dimen/photo_size"
-                android:layout_height="@dimen/photo_size"
-                android:id="@+id/imageView"
-                android:src="@mipmap/ic_launcher"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_above="@+id/linear_photo"
-                android:layout_marginLeft="@dimen/photo_left"
-                android:layout_marginBottom="@dimen/photo_left"
-                />
+
 
             <LinearLayout
                 android:id="@+id/linear_photo"
@@ -34,25 +26,42 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="@dimen/silding_text_size"
                 android:layout_alignParentStart="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    >
 
+                    <ImageView
+                        android:layout_width="@dimen/photo_size"
+                        android:layout_height="@dimen/photo_size"
+                        android:id="@+id/imageView"
+                        android:src="@drawable/potrait"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="@dimen/photo_left"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginLeft="@dimen/photo_left"
+                        android:text="天使的泪静静"
+                        android:textSize="@dimen/silding_text_size"
+                        android:textColor="@color/white"
+                        android:id="@+id/user_textview" />
+
+                </LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_marginLeft="@dimen/photo_left"
-                    android:text="User"
-                    android:textSize="@dimen/silding_text_size"
-                    android:textColor="@color/white"
-                    android:id="@+id/user_textview" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="@dimen/photo_left"
-                    android:text="adming/adimn.com"
+                    android:text="一个到晚忙不完的产品妹子~"
+                    android:layout_marginTop="@dimen/sliding_text_margin"
                     android:textColor="@color/white"
                     android:textSize="@dimen/silding_samell_size"
                     android:id="@+id/user_email" />
@@ -62,134 +71,137 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:background="@color/hui_33"
+            android:background="@color/black"
 
             android:layout_height="match_parent">
             <RelativeLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:gravity="center_vertical"
                 android:layout_height="@dimen/sliding_home_height"
+                android:gravity="center_vertical"
                 android:id="@+id/home_linearlayout">
+
+                <ImageView
+                    android:id="@+id/sliding_imgs_home"
+                    android:layout_width="@dimen/sliding_item_img_height"
+                    android:layout_height="@dimen/sliding_item_img_height"
+                    android:src="@drawable/home"
+                    android:layout_marginLeft="@dimen/sliding_item_marginleft"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/home"
+                    android:layout_toRightOf="@+id/sliding_imgs_home"
+                    android:layout_alignBottom="@+id/sliding_imgs_home"
+                    android:textColor="@android:color/white"
                     android:layout_marginLeft="@dimen/silding_home_left"
                     android:textSize="@dimen/silding_text_size"
                     android:id="@+id/home_text" />
 
             </RelativeLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/hui_dd"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/silding_home_left"
-                />
             <RelativeLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:gravity="center_vertical"
                 android:layout_height="@dimen/sliding_home_height"
                 android:id="@+id/recommended_linearlayout">
+                <ImageView
+                    android:id="@+id/sliding_imgs_hot"
+                    android:layout_width="@dimen/sliding_item_img_height"
+                    android:layout_height="@dimen/sliding_item_img_height"
+                    android:src="@drawable/hot"
+                    android:layout_marginLeft="@dimen/sliding_item_marginleft"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/recommended"
+                    android:text="@string/hot"
+                    android:layout_toRightOf="@+id/sliding_imgs_hot"
+                    android:layout_alignBottom="@+id/sliding_imgs_hot"
+                    android:textColor="@android:color/white"
                     android:layout_marginLeft="@dimen/silding_home_left"
                     android:textSize="@dimen/silding_text_size"
-                    android:id="@+id/recommend_text" />
+                    android:id="@+id/sliding_item_hot" />
+
 
             </RelativeLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/hui_dd"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/silding_home_left"
-                />
             <RelativeLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:gravity="center_vertical"
                 android:layout_height="@dimen/sliding_home_height">
 
+                <ImageView
+                    android:id="@+id/sliding_imgs_send"
+                    android:layout_width="@dimen/sliding_item_img_height"
+                    android:layout_height="@dimen/sliding_item_img_height"
+                    android:src="@drawable/send"
+                    android:layout_marginLeft="@dimen/sliding_item_marginleft"
+                    />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pengpeng"
+                    android:text="@string/send"
+                    android:layout_toRightOf="@+id/sliding_imgs_send"
+                    android:layout_alignBottom="@+id/sliding_imgs_send"
+                    android:textColor="@android:color/white"
                     android:layout_marginLeft="@dimen/silding_home_left"
                     android:textSize="@dimen/silding_text_size"
-                    android:id="@+id/pengpeng_text" />
+                    android:id="@+id/sliding_item_send" />
+
 
             </RelativeLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/hui_dd"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/silding_home_left"
-                />
             <RelativeLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:gravity="center_vertical"
                 android:layout_height="@dimen/sliding_home_height">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/social"
-                    android:layout_marginLeft="@dimen/silding_home_left"
-                    android:textSize="@dimen/silding_text_size"
-                    android:id="@+id/social_text" />
-
-            </RelativeLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/hui_dd"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/silding_home_left"
-                />
-            <RelativeLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:gravity="center_vertical"
-                android:layout_height="@dimen/sliding_home_height">
+                <ImageView
+                    android:id="@+id/sliding_imgs_setting"
+                    android:layout_width="@dimen/sliding_item_img_height"
+                    android:layout_height="@dimen/sliding_item_img_height"
+                    android:src="@drawable/set"
+                    android:layout_marginLeft="@dimen/sliding_item_marginleft"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/setting"
+                    android:layout_toRightOf="@+id/sliding_imgs_setting"
+                    android:layout_alignBottom="@+id/sliding_imgs_setting"
+                    android:textColor="@android:color/white"
                     android:layout_marginLeft="@dimen/silding_home_left"
                     android:textSize="@dimen/silding_text_size"
-                    android:id="@+id/setting_text" />
-
+                    android:id="@+id/sliding_item_setting" />
             </RelativeLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/hui_dd"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/silding_home_left"
-                />
             <RelativeLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:gravity="center_vertical"
                 android:layout_height="@dimen/sliding_home_height">
 
+                <ImageView
+                    android:id="@+id/sliding_imgs_aboutus"
+                    android:layout_width="@dimen/sliding_item_img_height"
+                    android:layout_height="@dimen/sliding_item_img_height"
+                    android:src="@drawable/about"
+                    android:layout_marginLeft="@dimen/sliding_item_marginleft"
+                    />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/about_us"
+                    android:layout_toRightOf="@+id/sliding_imgs_aboutus"
+                    android:layout_alignBottom="@+id/sliding_imgs_aboutus"
+                    android:textColor="@android:color/white"
                     android:layout_marginLeft="@dimen/silding_home_left"
                     android:textSize="@dimen/silding_text_size"
-                    android:id="@+id/about_us_text" />
+                    android:id="@+id/sliding_item_aboutus" />
 
             </RelativeLayout>
             <View
@@ -199,6 +211,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="@dimen/silding_home_left"
                 />
+
         </LinearLayout>
 
 
