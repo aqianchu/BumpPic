@@ -78,6 +78,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         findViewById(R.id.home_linearlayout).setOnClickListener(this);
         findViewById(R.id.recommended_linearlayout).setOnClickListener(this);
         findViewById(R.id.toggle_sliding).setOnClickListener(this);
+        findViewById(R.id.sliding_portarit).setOnClickListener(this);
         radiogroup.setOnCheckedChangeListener(this);
     }
 
@@ -127,6 +128,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
             case R.id.toggle_sliding:
                 menu.toggle();
+                break;
+            case R.id.sliding_portarit:
+                startActivity(new Intent(this,ActivityUser.class));
                 break;
         }
     }
