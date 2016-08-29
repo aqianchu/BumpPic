@@ -128,6 +128,7 @@
 
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/sliding_send"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:gravity="center_vertical"
@@ -153,6 +154,31 @@
                     android:id="@+id/sliding_item_send" />
 
 
+            </RelativeLayout>
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/sliding_home_height">
+
+                <ImageView
+                    android:id="@+id/sliding_imgs_social"
+                    android:layout_width="@dimen/sliding_item_img_height"
+                    android:layout_height="@dimen/sliding_item_img_height"
+                    android:src="@drawable/society_of_friends"
+                    android:layout_marginLeft="@dimen/sliding_item_marginleft"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/social"
+                    android:layout_toRightOf="@+id/sliding_imgs_social"
+                    android:layout_alignBottom="@+id/sliding_imgs_social"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/silding_home_left"
+                    android:textSize="@dimen/silding_text_size"
+                    android:id="@+id/sliding_item_socail" />
             </RelativeLayout>
             <RelativeLayout
                 android:orientation="vertical"
