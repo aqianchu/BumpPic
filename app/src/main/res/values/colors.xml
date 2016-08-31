@@ -10,4 +10,5 @@
     <color name="transparent">#00000000</color>
     <color name="black">#000000</color>
     <color name="black_33">#dd000000</color>
+    <color name="applicationYellow">#ffea2b</color>
 </resources>

@@ -10,8 +10,8 @@ public class MainActivity extends SlidingBaseActivity{
     protected void initFragment() {
         recentF = new RecentFragment();
         hotf = new HotFragment();
-        saF = new SpecialAttentionFragment();
-        lists.add(recentF);lists.add(hotf);lists.add(saF);
+        //saF = new SpecialAttentionFragment();
+        lists.add(recentF);lists.add(hotf);//lists.add(saF);
     }
 
     @Override

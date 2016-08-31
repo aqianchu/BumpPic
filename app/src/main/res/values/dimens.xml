@@ -18,7 +18,7 @@
     <dimen name="login_username_pass_padding">10dp</dimen>
     <dimen name="login_title_height">60dp</dimen>
     <dimen name="login_text_size">22dp</dimen>
-    <dimen name="login_title_text_small">19dp</dimen>
+    <dimen name="login_title_text_small">18dp</dimen>
     <dimen name="regist_right_margin">10dp</dimen>
     <dimen name="login_login_margintop">27dp</dimen>
     <dimen name="weixin_size">40dp</dimen>
@@ -43,4 +43,7 @@
     <dimen name="title_marginleft">12dp</dimen>
 
     <dimen name="title_height">65dp</dimen>
+    <dimen name="send_picture_height">180dp</dimen>
+    <dimen name="filter_imgs_height">200dp</dimen>
+    <dimen name="tendp">10dp</dimen>
 </resources>

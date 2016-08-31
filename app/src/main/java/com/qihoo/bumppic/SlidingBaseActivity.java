@@ -132,6 +132,7 @@ public abstract class SlidingBaseActivity extends FragmentActivity implements Vi
         recent_rbt = (RadioButton)findViewById(R.id.radiobt_home_recent);
         hot_rbt = (RadioButton)findViewById(R.id.radiobt_home_hot);
         sa_rbt = (RadioButton)findViewById(R.id.radiobt_home_specialattention);
+        sa_rbt.setVisibility(View.GONE);
         mViewPage = (ViewPager)findViewById(R.id.viewpager_home);
         search_bt = (Button)findViewById(R.id.search_social);
         mViewPage.setAdapter(new HomeFragmentPagerAdapter(getSupportFragmentManager(),lists));
@@ -139,11 +140,19 @@ public abstract class SlidingBaseActivity extends FragmentActivity implements Vi
         mViewPage.setOnPageChangeListener(this);
     }
 
+    /**
+     * 是否是发送界面
+     * @param isHide true是
+     */
     protected void sethide(boolean isHide){
         if (isHide){
+            recent_rbt.setText("发送");
+            hot_rbt.setText("滤镜");
             sa_rbt.setVisibility(View.GONE);
             search_bt.setVisibility(View.GONE);
         }else {
+            recent_rbt.setText("最近");
+            hot_rbt.setText("热门");
             sa_rbt.setVisibility(View.VISIBLE);
             search_bt.setVisibility(View.VISIBLE);
         }
@@ -153,6 +162,7 @@ public abstract class SlidingBaseActivity extends FragmentActivity implements Vi
         //s胜((TextView)findViewById(R.id.home_title_social)).getPaint().setFakeBoldText(true);
         findViewById(R.id.home_linearlayout).setOnClickListener(this);
         findViewById(R.id.recommended_linearlayout).setOnClickListener(this);
+        findViewById(R.id.socail_sliding_relativelayout).setOnClickListener(this);
         findViewById(R.id.toggle_sliding).setOnClickListener(this);
         findViewById(R.id.sliding_portarit).setOnClickListener(this);
         search_bt.setOnClickListener(this);
@@ -164,24 +174,42 @@ public abstract class SlidingBaseActivity extends FragmentActivity implements Vi
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.home_linearlayout:
-                Intent intent = new Intent(this, ActivityLogin.class);
+                if (this instanceof ActivitySend){
+                    menu.toggle();
+                    return;
+                }
+                Intent intent = new Intent(this, ActivitySend.class);
                 startActivity(intent);
+                finish();
+                break;
+            case R.id.socail_sliding_relativelayout:
+                if (this instanceof MainActivity) {
+                    menu.toggle();
+                    return;
+                }
+                startActivity(new Intent(this,MainActivity.class));
+                finish();
                 break;
             case R.id.recommended_linearlayout:
                 startActivity(new Intent(this, ActivityRegister.class));
+                menu.toggle();
                 break;
             case R.id.toggle_sliding:
                 menu.toggle();
                 break;
             case R.id.sliding_portarit:
                 startActivity(new Intent(this,ActivityUser.class));
+                menu.toggle();
                 break;
             case R.id.search_social:
                 startActivity(new Intent(this,ActivitySearch.class));
+                menu.toggle();
                 break;
             case R.id.sliding_send:
                 startActivity(new Intent(this,ActivitySend.class));
+                menu.toggle();
                 break;
+
         }
     }
 

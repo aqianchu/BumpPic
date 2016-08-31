@@ -2,31 +2,68 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.qihoo.bumppic">
 
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".app.BumpPicApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".login.ActivityLogin" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Anim_fade"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".login.ActivityLogin"
+            android:launchMode="singleTop" />
         <activity
             android:name=".ActivityStart"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".login.ActivityRegister"
+            android:label="@string/title_activity_activity_register"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ActivitySearch"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ActivityUser"
+            android:launchMode="singleTop" />
+        <activity
+            android:theme="@style/Anim_fade"
+            android:name=".ActivitySend"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/vnd.com.example.android.beam" />
+            </intent-filter>
         </activity>
-        <activity
-            android:name=".login.ActivityRegister"
-            android:label="@string/title_activity_activity_register"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ActivitySearch" />
-        <activity android:name=".ActivityUser" />
-        <activity android:name=".ActivitySend"></activity>
+        <activity android:name=".ActivitySendPicture"
+            android:launchMode="singleTop"/>
     </application>
 
 </manifest>

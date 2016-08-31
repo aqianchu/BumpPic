@@ -26,4 +26,9 @@
     <string name="specil_attation">特别关注</string>
     <string name="send">发送</string>
     <string name="mine">我的</string>
+    <string name="pengyipeng">碰一碰</string>
+    <string name="collect">我的收藏</string>
+    <string name="footprint">我的足迹</string>
+    <string name="send_picture_hint">轻触图片以发送</string>
+    <string name="filter">滤镜</string>
 </resources>
