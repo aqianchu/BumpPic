@@ -46,4 +46,6 @@
     <dimen name="send_picture_height">180dp</dimen>
     <dimen name="filter_imgs_height">200dp</dimen>
     <dimen name="tendp">10dp</dimen>
+    <dimen name="my_item_height">18dp</dimen>
+    <dimen name="back_height">25dp</dimen>
 </resources>

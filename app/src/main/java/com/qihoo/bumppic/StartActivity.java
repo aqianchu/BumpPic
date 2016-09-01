@@ -13,14 +13,14 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class ActivityStart extends ActivityBase {
+public class StartActivity extends ActivityBase {
 
     Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case 1:
-                    Intent intent = new Intent(ActivityStart.this,MainActivity.class);
+                    Intent intent = new Intent(StartActivity.this,MainActivity.class);
                     startActivity(intent);
                     finish();
                     break;

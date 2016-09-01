@@ -7,7 +7,7 @@ import android.view.View;
 import com.qihoo.bumppic.ActivityBase;
 import com.qihoo.bumppic.R;
 
-public class ActivityLogin extends ActivityBase{
+public class LoginActiviy extends ActivityBase{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class ActivityLogin extends ActivityBase{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.login_register_tv:
-                startActivity(new Intent(this,ActivityRegister.class));
+                startActivity(new Intent(this,RegisterActivity.class));
                 finish();
                 break;
         }

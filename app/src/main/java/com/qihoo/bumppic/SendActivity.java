@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.qihoo.bumppic.frgment.FilterFragment;
 import com.qihoo.bumppic.frgment.PengFragment;
 
-public class ActivitySend extends SlidingBaseActivity  {
+public class SendActivity extends SlidingBaseActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

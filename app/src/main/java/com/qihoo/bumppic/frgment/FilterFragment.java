@@ -22,7 +22,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.qihoo.bumppic.ActivitySend;
 import com.qihoo.bumppic.R;
 import com.qihoo.bumppic.wifidirect.ServerService;
 import com.qihoo.bumppic.wifidirect.WiFiServerBroadcastReceiver;
@@ -38,7 +37,7 @@ public class FilterFragment extends Fragment implements NfcAdapter.CreateNdefMes
 
     private View view;
     private FragmentActivity context;
-    private EditText mInputField;
+//    private EditText mInputField;
     private TextView mOutputText;
     private NfcAdapter mNfcAdapter;
     private WifiP2pManager wifiManager;
@@ -93,7 +92,7 @@ public class FilterFragment extends Fragment implements NfcAdapter.CreateNdefMes
     }
 
     private void initializeComponents(View view) {
-        mInputField = (EditText) view.findViewById(R.id.edt_input_beam);
+        //mInputField = (EditText) view.findViewById(R.id.edt_input_beam);
         mOutputText = (TextView) view.findViewById(R.id.received_txt_beam);
         SharedPreferences sp = context.getSharedPreferences("nfc_data", Context.MODE_PRIVATE);
         String payload = sp.getString("payload","空");
@@ -145,7 +144,8 @@ public class FilterFragment extends Fragment implements NfcAdapter.CreateNdefMes
     @Override
     public NdefMessage createNdefMessage(NfcEvent event) {
         startService();
-        String text = (mInputField.getText().toString());
+        String text = ("ip:192.168.1.199 port:9898");
+//        String text = (mInputField.getText().toString());
         return new NdefMessage(
                 new NdefRecord[]{createMime(
                         "application/vnd.com.example.android.beam", text.getBytes())

@@ -20,16 +20,14 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.qihoo.bumppic.ActivitySendPicture;
 import com.qihoo.bumppic.R;
+import com.qihoo.bumppic.SendPictureActivity;
 import com.qihoo.bumppic.entity.ImageEntity;
 
 import java.io.File;
@@ -102,7 +100,7 @@ public class PengFragment extends Fragment{
         getThumbnail();
     }
     private void gotoSendPicture(String str){
-        Intent intent = new Intent(mContext, ActivitySendPicture.class);
+        Intent intent = new Intent(mContext, SendPictureActivity.class);
         intent.putExtra("path",str);
         startActivity(intent);
     }

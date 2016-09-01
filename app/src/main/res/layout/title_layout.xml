@@ -7,11 +7,11 @@
 
     <Button
         android:id="@+id/back_bt"
-        android:layout_width="@dimen/weixin_size_small"
+        android:layout_width="@dimen/back_height"
         android:background="@drawable/back"
         android:layout_centerVertical="true"
         android:layout_marginLeft="@dimen/title_marginleft"
-        android:layout_height="@dimen/weixin_size_small" />
+        android:layout_height="@dimen/back_height" />
 
     <TextView
         android:id="@+id/title_text"

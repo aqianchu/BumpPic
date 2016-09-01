@@ -17,8 +17,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.target.Target;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
@@ -29,11 +27,8 @@ import com.qihoo.bumppic.wifidirect.WiFiClientBroadcastReceiver;
 import java.io.File;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
-import jp.wasabeef.glide.transformations.CropCircleTransformation;
-import jp.wasabeef.glide.transformations.MaskTransformation;
-import jp.wasabeef.glide.transformations.gpu.SepiaFilterTransformation;
 
-public class ActivitySendPicture extends ActivityBase {
+public class SendPictureActivity extends ActivityBase {
     private DisplayImageOptions options;
     private Button send_bt;
     private ImageView img;
@@ -58,7 +53,7 @@ public class ActivitySendPicture extends ActivityBase {
     private Intent clientServiceIntent;
     private WifiP2pDevice targetDevice;
     private WifiP2pInfo wifiInfo;
-    private ActivitySendPicture context;
+    private SendPictureActivity context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

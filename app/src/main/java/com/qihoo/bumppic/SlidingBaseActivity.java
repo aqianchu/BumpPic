@@ -14,8 +14,11 @@ import android.widget.RadioGroup;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.qihoo.bumppic.adapter.HomeFragmentPagerAdapter;
-import com.qihoo.bumppic.login.ActivityLogin;
-import com.qihoo.bumppic.login.ActivityRegister;
+import com.qihoo.bumppic.setting.AboutActivity;
+import com.qihoo.bumppic.setting.SettingActivity;
+import com.qihoo.bumppic.user.CollectActivity;
+import com.qihoo.bumppic.user.FootprintActivity;
+import com.qihoo.bumppic.user.UserActivity;
 import com.qihoo.bumppic.utils.ToastUtils;
 
 import java.util.ArrayList;
@@ -161,24 +164,26 @@ public abstract class SlidingBaseActivity extends FragmentActivity implements Vi
     protected void setListener() {
         //s胜((TextView)findViewById(R.id.home_title_social)).getPaint().setFakeBoldText(true);
         findViewById(R.id.home_linearlayout).setOnClickListener(this);
-        findViewById(R.id.recommended_linearlayout).setOnClickListener(this);
+        findViewById(R.id.sliding_item_aboutus_rl).setOnClickListener(this);
         findViewById(R.id.socail_sliding_relativelayout).setOnClickListener(this);
         findViewById(R.id.toggle_sliding).setOnClickListener(this);
         findViewById(R.id.sliding_portarit).setOnClickListener(this);
         search_bt.setOnClickListener(this);
         radiogroup.setOnCheckedChangeListener(this);
-        findViewById(R.id.sliding_send).setOnClickListener(this);
+        findViewById(R.id.sliding_item_setting_rl).setOnClickListener(this);
+        findViewById(R.id.sliding_item_footprint).setOnClickListener(this);
+        findViewById(R.id.mycollcet__linearlayout).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.home_linearlayout:
-                if (this instanceof ActivitySend){
+                if (this instanceof SendActivity){
                     menu.toggle();
                     return;
                 }
-                Intent intent = new Intent(this, ActivitySend.class);
+                Intent intent = new Intent(this, SendActivity.class);
                 startActivity(intent);
                 finish();
                 break;
@@ -190,23 +195,31 @@ public abstract class SlidingBaseActivity extends FragmentActivity implements Vi
                 startActivity(new Intent(this,MainActivity.class));
                 finish();
                 break;
-            case R.id.recommended_linearlayout:
-                startActivity(new Intent(this, ActivityRegister.class));
+            case R.id.mycollcet__linearlayout:
+                startActivity(new Intent(this, CollectActivity.class));
                 menu.toggle();
                 break;
             case R.id.toggle_sliding:
                 menu.toggle();
                 break;
             case R.id.sliding_portarit:
-                startActivity(new Intent(this,ActivityUser.class));
+                startActivity(new Intent(this,UserActivity.class));
                 menu.toggle();
                 break;
             case R.id.search_social:
-                startActivity(new Intent(this,ActivitySearch.class));
+                startActivity(new Intent(this,SearchActivity.class));
                 menu.toggle();
                 break;
-            case R.id.sliding_send:
-                startActivity(new Intent(this,ActivitySend.class));
+            case R.id.sliding_item_footprint:
+                startActivity(new Intent(this,FootprintActivity.class));
+                menu.toggle();
+                break;
+            case R.id.sliding_item_setting_rl:
+                startActivity(new Intent(this,SettingActivity.class));
+                menu.toggle();
+                break;
+            case R.id.sliding_item_aboutus_rl:
+                startActivity(new Intent(this,AboutActivity.class));
                 menu.toggle();
                 break;
 

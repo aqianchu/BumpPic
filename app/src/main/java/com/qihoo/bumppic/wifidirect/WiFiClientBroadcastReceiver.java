@@ -36,7 +36,7 @@ import android.net.wifi.p2p.WifiP2pInfo;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.net.wifi.p2p.WifiP2pManager.Channel;
 
-import com.qihoo.bumppic.ActivitySendPicture;
+import com.qihoo.bumppic.SendPictureActivity;
 import com.qihoo.bumppic.utils.ToastUtils;
 
 /*
@@ -48,9 +48,9 @@ public class WiFiClientBroadcastReceiver extends BroadcastReceiver {
 
     private WifiP2pManager manager;
     private Channel channel;
-    private ActivitySendPicture activity;
+    private SendPictureActivity activity;
 
-    public WiFiClientBroadcastReceiver(WifiP2pManager manager, Channel channel,ActivitySendPicture activity) {
+    public WiFiClientBroadcastReceiver(WifiP2pManager manager, Channel channel,SendPictureActivity activity) {
         super();
         this.manager = manager;
         this.channel = channel;

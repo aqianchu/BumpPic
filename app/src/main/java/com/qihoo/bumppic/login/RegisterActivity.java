@@ -2,16 +2,12 @@ package com.qihoo.bumppic.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.qihoo.bumppic.ActivityBase;
 import com.qihoo.bumppic.R;
 
-public class ActivityRegister extends ActivityBase {
+public class RegisterActivity extends ActivityBase {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +25,7 @@ public class ActivityRegister extends ActivityBase {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.register_login_tv:
-                startActivity(new Intent(this,ActivityLogin.class));
+                startActivity(new Intent(this,LoginActiviy.class));
                 finish();
                 break;
         }

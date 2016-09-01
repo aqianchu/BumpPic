@@ -24,31 +24,31 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Anim_fade"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:theme="@style/Anim_fade" />
         <activity
-            android:name=".login.ActivityLogin"
+            android:name=".login.LoginActiviy"
             android:launchMode="singleTop" />
         <activity
-            android:name=".ActivityStart"
+            android:name=".StartActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".login.ActivityRegister"
+            android:name=".login.RegisterActivity"
             android:label="@string/title_activity_activity_register"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ActivitySearch"
+            android:name=".SearchActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name=".ActivityUser"
+            android:name=".user.UserActivity"
             android:launchMode="singleTop" />
         <activity
-            android:theme="@style/Anim_fade"
-            android:name=".ActivitySend"
-            android:launchMode="singleTask">
+            android:name=".SendActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Anim_fade">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,8 +62,20 @@
                 <data android:mimeType="application/vnd.com.example.android.beam" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivitySendPicture"
-            android:launchMode="singleTop"/>
+        <activity
+            android:name=".SendPictureActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".setting.SettingActivity" />
+        <activity android:name=".setting.AboutActivity" />
+        <activity android:name=".setting.AcouuntSafeActivity" />
+        <activity android:name=".setting.FeedbackActivity" />
+        <activity android:name=".setting.ChangePasswordActivity" />
+        <activity android:name=".setting.GeneralActivity" />
+        <activity android:name=".setting.NotificationActivity" />
+        <activity android:name=".user.CollectActivity" />
+        <activity android:name=".user.FootprintActivity" />
+        <activity android:name=".user.MessageActivity" />
+        <activity android:name=".user.MyTagActivity"></activity>
     </application>
 
 </manifest>

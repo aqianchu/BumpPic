@@ -158,7 +158,7 @@
                 android:layout_width="match_parent"
                 android:gravity="center_vertical"
                 android:layout_height="@dimen/sliding_home_height"
-                android:id="@+id/recommended_linearlayout">
+                android:id="@+id/mycollcet__linearlayout">
                 <ImageView
                     android:id="@+id/sliding_imgs_hot"
                     android:layout_width="@dimen/sliding_item_img_height"
@@ -178,10 +178,9 @@
                     android:textSize="@dimen/silding_text_size"
                     android:id="@+id/sliding_item_hot" />
 
-
             </RelativeLayout>
             <RelativeLayout
-                android:id="@+id/sliding_send"
+                android:id="@+id/sliding_item_footprint"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:gravity="center_vertical"
@@ -210,6 +209,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/sliding_item_setting_rl"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:gravity="center_vertical"
@@ -235,6 +235,8 @@
                     android:id="@+id/sliding_item_setting" />
             </RelativeLayout>
             <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/sliding_item_aboutus_rl"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:gravity="center_vertical"
