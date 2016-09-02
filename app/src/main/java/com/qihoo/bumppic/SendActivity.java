@@ -64,18 +64,28 @@ public class SendActivity extends SlidingBaseActivity  {
         recentF = new PengFragment();
         hotf = new FilterFragment();
         lists.add(recentF);lists.add(hotf);
-        String child="/beam/";
-        String parentPath = Environment.getExternalStorageDirectory().getPath()+child;
+        String child="/Download/";
+        //String parentPath = Environment.getExternalStorageDirectory().getPath()+child;
         String str = Build.MODEL+":"+Build.VERSION.SDK;
-        if (str.equals("YQ601:19")){
-            child = "/beam/";
-        }else{
+        if(str.contains("SM")){
             child = "/Download/";
-            parentPath = "/storage/emulated/legacy/Download/";
+        }else   if (str.contains("YQ")){
+            child = "/beam/";
+        }else if(str.contains("MI")){
+            child = "/Download/Bluetooth/";
+          //  parentPath = "/storage/emulated/legacy/Download/";
 //            parentPath = "/sdcard/Download/";
-        }//  /storage/emulated/0/Download/
-
-
+        }else if(str.contains("PRO")){
+            child = "/Download/Bluetooth/";
+            //  /storage/emulated/0/Download/
+        }
+        String parentPath = Environment.getExternalStorageDirectory().getPath()+child;
+        if(str.contains("PRO")){
+            child = "/Download/Bluetooth/";
+            //  /storage/emulated/0/Download/
+            parentPath = "/storage/emulated/legacy/Download/Bluetooth/";
+            // /storage/emulated/legacy/Download/Bluetooth/
+        }
         Log.i("filepath",parentPath);
         fileObserver= FileUtils.fileObsever(parentPath,this);
         fileObserver.startWatching();

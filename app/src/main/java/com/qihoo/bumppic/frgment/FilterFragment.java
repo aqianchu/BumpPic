@@ -2,6 +2,7 @@ package com.qihoo.bumppic.frgment;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -103,8 +104,25 @@ public class FilterFragment extends Fragment implements View.OnClickListener{
             Log.i("test","FilterSetImg");
           //  imgLoader.displayImage(path,img_beam);
             FilterUtils utils = new FilterUtils(context);
-            DrawableRequestBuilder drb = utils.getFilter(path)[getRandom(1,13)];
+            final DrawableRequestBuilder drb = utils.getFilter(path)[getRandom(1,13)];
             drb.into(img_beam);
+//            img_beam.setOnLongClickListener(new View.OnLongClickListener() {
+//
+//                @Override
+//                public boolean onLongClick(View view) {
+//                    new AlertDialog.Builder(context)
+//                            .setMessage("是否保存图片?")
+//                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                                @Override
+//                                public void onClick(DialogInterface dialogInterface, int i) {
+//                                    drb.
+//                                }
+//                            })
+//                            .setNegativeButton("取消",null)
+//                            .create().show();
+//                    return false;
+//                }
+//            });
         }
     }
 
