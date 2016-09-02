@@ -56,7 +56,6 @@ public class BaseFragment extends Fragment implements AdapterView.OnItemClickLis
         ptrListView.setAdapter(new HomeAdapter(mContext,datas));
         ptrListView.setMode(PullToRefreshBase.Mode.BOTH);
         ptrListView.setOnItemClickListener(this);
-//        ptrListView.setOnItemClickListener
     }
 
     @Override

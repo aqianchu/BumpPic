@@ -8,7 +8,8 @@
     <color name="hui_dd">#33333333</color>
     <color name="hui_33">#22ddddee</color>
     <color name="transparent">#00000000</color>
-    <color name="black">#000000</color>
+    <color name="black">#232427</color>
     <color name="black_33">#dd000000</color>
     <color name="applicationYellow">#ffea2b</color>
+    <color name="black_dd">#dd232427</color>
 </resources>

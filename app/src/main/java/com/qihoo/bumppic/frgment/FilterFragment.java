@@ -1,5 +1,6 @@
 package com.qihoo.bumppic.frgment;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -10,11 +11,13 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcEvent;
 import android.os.Bundle;
+import android.os.FileObserver;
 import android.os.Parcelable;
 import android.os.ResultReceiver;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,18 +25,28 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.DrawableRequestBuilder;
+import com.bumptech.glide.Glide;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.qihoo.bumppic.R;
+import com.qihoo.bumppic.SendActivity;
+import com.qihoo.bumppic.utils.FilterUtils;
+import com.qihoo.bumppic.utils.NfcUtils;
+import com.qihoo.bumppic.utils.ToastUtils;
 import com.qihoo.bumppic.wifidirect.ServerService;
 import com.qihoo.bumppic.wifidirect.WiFiServerBroadcastReceiver;
 
 import java.io.File;
+import java.util.Random;
+
+import jp.wasabeef.glide.transformations.BlurTransformation;
 
 import static android.nfc.NdefRecord.createMime;
 
 /**
  * Created by hacker on 16/8/29.
  */
-public class FilterFragment extends Fragment implements NfcAdapter.CreateNdefMessageCallback,View.OnClickListener{
+public class FilterFragment extends Fragment implements View.OnClickListener{
 
     private View view;
     private FragmentActivity context;
@@ -49,11 +62,14 @@ public class FilterFragment extends Fragment implements NfcAdapter.CreateNdefMes
     private Intent serverServiceIntent;
     private boolean serverThreadActive;
     private int port;
+    private ImageView img_beam;
+    private ImageLoader imgLoader;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.filter_layout,container,false);
+        setView();
         return view;
     }
 
@@ -61,11 +77,36 @@ public class FilterFragment extends Fragment implements NfcAdapter.CreateNdefMes
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         context = getActivity();
-        initializeComponents(view);
-        serverInit();
+        //这里判断是否支持nfc
+        imgLoader = ImageLoader.getInstance();
+        setView();
+        if (!NfcUtils.isSupportNfc(context)){
+            ToastUtils.showShort(context,NfcUtils.NFC_HINT);
+            return;
+        }
+//        initializeComponents();
+//        serverInit();
     }
 
+    private void setView() {
+        img_beam = (ImageView) view.findViewById(R.id.img_beam);
+    }
 
+    private int getRandom(int min,int max){
+        Random random = new Random();
+        int s = random.nextInt(max)%(max-min+1) + min;
+        return s;
+    }
+
+    public void setImgBeamSrc(String path){
+        if (img_beam!=null){
+            Log.i("test","FilterSetImg");
+          //  imgLoader.displayImage(path,img_beam);
+            FilterUtils utils = new FilterUtils(context);
+            DrawableRequestBuilder drb = utils.getFilter(path)[getRandom(1,13)];
+            drb.into(img_beam);
+        }
+    }
 
     private void serverInit() {
         if (serverThreadActive){
@@ -91,43 +132,67 @@ public class FilterFragment extends Fragment implements NfcAdapter.CreateNdefMes
         context.registerReceiver(wifiServerReceiver, wifiServerReceiverIntentFilter);
     }
 
-    private void initializeComponents(View view) {
+    private void initializeComponents() {
         //mInputField = (EditText) view.findViewById(R.id.edt_input_beam);
         mOutputText = (TextView) view.findViewById(R.id.received_txt_beam);
         SharedPreferences sp = context.getSharedPreferences("nfc_data", Context.MODE_PRIVATE);
         String payload = sp.getString("payload","空");
         mOutputText.setText(payload);
-        ImageView mTapImageBeam = (ImageView) view.findViewById(R.id.img_beam);
-        mTapImageBeam.setOnClickListener(this);
-
         mNfcAdapter = NfcAdapter.getDefaultAdapter(getActivity());
-        mNfcAdapter.setNdefPushMessageCallback(this, context);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        startService();//开启服务
-        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(context.getIntent().getAction())) {
-            processIntent(context.getIntent());
-        }
-    }
-    @Override
-    public void onPause() {
-        super.onPause();
-        mNfcAdapter.disableForegroundDispatch(context);
-        stopServer();//停止服务
-    }
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        if (!NfcUtils.isSupportNfc(context))
+//            return;
+//        mOutputText.setText("Action:"+context.getIntent().getAction());
+//        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(context.getIntent().getAction())
+//                ||NfcAdapter.ACTION_TAG_DISCOVERED.equals(context.getIntent().getAction())
+//        ||NfcAdapter.ACTION_TECH_DISCOVERED.equals(context.getIntent().getAction())) {
+//            ToastUtils.showShort(context,"收到");
+//            ((SendActivity)context).setCurrentPager(1);
+//            processIntent(context.getIntent());
+//            startService();//开启服务
+//        }
+//    }
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        if (!NfcUtils.isSupportNfc(context))
+//            return;
+//        mNfcAdapter.disableForegroundDispatch(context);
+//        stopServer();//停止服务
+//    }
+//
+//    @Override
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        try {
+//            context.unregisterReceiver(wifiServerReceiver);
+//        } catch (IllegalArgumentException e) {
+//            // This will happen if the server was never running and the stop
+//            // button was pressed.
+//            // Do nothing in this case.
+//        }
+//        if (!NfcUtils.isSupportNfc(context))
+//            return;
+//        stopServer();
+//    }
 
-    void processIntent(Intent intent) {
+    private void processIntent(Intent intent) {
         Parcelable[] receivedMessages = intent.getParcelableArrayExtra(
                 NfcAdapter.EXTRA_NDEF_MESSAGES);
 
+        if(receivedMessages==null){
+            return;
+        }
         NdefMessage message = (NdefMessage) receivedMessages[0];
         String payload = new String(message.getRecords()[0].getPayload());
         SharedPreferences sp = context.getSharedPreferences("nfc_data", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("payload",payload);
+        ToastUtils.showShort(context,payload);
         mOutputText.setText(payload);
     }
 
@@ -139,17 +204,6 @@ public class FilterFragment extends Fragment implements NfcAdapter.CreateNdefMes
 //                mNfcAdapter.setNdefPushMessageCallback(this, context);
                 break;
         }
-    }
-
-    @Override
-    public NdefMessage createNdefMessage(NfcEvent event) {
-        startService();
-        String text = ("ip:192.168.1.199 port:9898");
-//        String text = (mInputField.getText().toString());
-        return new NdefMessage(
-                new NdefRecord[]{createMime(
-                        "application/vnd.com.example.android.beam", text.getBytes())
-                });
     }
 
     private void startService(){
@@ -175,25 +229,11 @@ public class FilterFragment extends Fragment implements NfcAdapter.CreateNdefMes
                         {
                         }
                     }
-
                 }
             });
 
             serverThreadActive = true;
             context.startService(serverServiceIntent);
-        }
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        try {
-            stopServer();
-            context.unregisterReceiver(wifiServerReceiver);
-        } catch (IllegalArgumentException e) {
-            // This will happen if the server was never running and the stop
-            // button was pressed.
-            // Do nothing in this case.
         }
     }
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.qihoo.bumppic.ActivitySendPicture">
+    >
 
     <include
         layout="@layout/title_layout"/>
@@ -13,7 +13,7 @@
         android:id="@+id/send_picture_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"
+        android:scaleType="center"
         android:layout_margin="@dimen/tendp"
         />
 </LinearLayout>

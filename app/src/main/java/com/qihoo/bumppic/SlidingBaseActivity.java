@@ -40,10 +40,12 @@ public abstract class SlidingBaseActivity extends FragmentActivity implements Vi
     protected Fragment saF;
     protected List<Fragment> lists;
     protected Button search_bt;
+    protected SlidingBaseActivity mContext;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = this;
         lists = new ArrayList<Fragment>();
         initFragment();
         setContentView(R.layout.activity_main);
@@ -90,7 +92,7 @@ public abstract class SlidingBaseActivity extends FragmentActivity implements Vi
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         changeHomeSelected(i);
     }
-    private void changeHomeSelected(int i){
+    protected void changeHomeSelected(int i){
         switch (i){
             case R.id.radiobt_home_recent:
                 recent_rbt.setChecked(true);
@@ -208,7 +210,6 @@ public abstract class SlidingBaseActivity extends FragmentActivity implements Vi
                 break;
             case R.id.search_social:
                 startActivity(new Intent(this,SearchActivity.class));
-                menu.toggle();
                 break;
             case R.id.sliding_item_footprint:
                 startActivity(new Intent(this,FootprintActivity.class));

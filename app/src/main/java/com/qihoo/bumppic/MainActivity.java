@@ -1,8 +1,11 @@
 package com.qihoo.bumppic;
 
+import android.os.FileObserver;
+import android.util.Log;
+
 import com.qihoo.bumppic.frgment.HotFragment;
 import com.qihoo.bumppic.frgment.RecentFragment;
-import com.qihoo.bumppic.frgment.SpecialAttentionFragment;
+import com.qihoo.bumppic.utils.ToastUtils;
 
 
 public class MainActivity extends SlidingBaseActivity{
@@ -12,10 +15,12 @@ public class MainActivity extends SlidingBaseActivity{
         hotf = new HotFragment();
         //saF = new SpecialAttentionFragment();
         lists.add(recentF);lists.add(hotf);//lists.add(saF);
+
     }
 
     @Override
     protected void setView() {
         super.setView();
     }
+
 }

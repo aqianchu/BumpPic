@@ -8,8 +8,10 @@
     <ImageView
         android:id="@+id/img_beam"
         android:layout_centerInParent="true"
-        android:layout_width="@dimen/filter_imgs_height"
-        android:layout_height="@dimen/filter_imgs_height"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="center"
+        android:layout_margin="@dimen/tendp"
         android:src="@drawable/filter_bg"
         />
     <TextView
@@ -18,6 +20,7 @@
         android:textSize="24sp"
         android:textColor="@color/applicationYellow"
         android:textAlignment="center"
+        android:visibility="gone"
         android:layout_centerInParent="true"
         android:layout_height="wrap_content"
         android:layout_below="@id/img_beam"
@@ -26,6 +29,7 @@
         android:id="@+id/received_txt_beam"
         android:layout_width="match_parent"
         android:textSize="15sp"
+        android:visibility="gone"
         android:textColor="@color/applicationYellow"
         android:textAlignment="center"
         android:layout_centerInParent="true"

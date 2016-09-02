@@ -48,4 +48,9 @@
     <dimen name="tendp">10dp</dimen>
     <dimen name="my_item_height">18dp</dimen>
     <dimen name="back_height">25dp</dimen>
+    <dimen name="footprint_item_img_height">130dp</dimen>
+    <dimen name="footprint_item_img_width">150dp</dimen>
+    <dimen name="footprint_height">200dp</dimen>
+    <dimen name="footprint_margin">16dp</dimen>
+    <dimen name="xin_heigh">20dp</dimen>
 </resources>

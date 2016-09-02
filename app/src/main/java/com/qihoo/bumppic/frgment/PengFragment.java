@@ -75,8 +75,8 @@ public class PengFragment extends Fragment{
     private void initParamter() {
         imageEntity = new ImageEntity();
         loader = ImageLoader.getInstance();
-        options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.background_picture1)
-                .showImageForEmptyUri(R.drawable.background_picture1).showImageOnFail(R.drawable.background_picture1)
+        options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.example_picture_3)
+                .showImageForEmptyUri(R.drawable.example_picture_3).showImageOnFail(R.drawable.example_picture_3)
                 .cacheInMemory(true).cacheOnDisk(true).considerExifParams(true)
                 .imageScaleType(ImageScaleType.EXACTLY).bitmapConfig(Bitmap.Config.RGB_565).build();
 
@@ -100,7 +100,7 @@ public class PengFragment extends Fragment{
         getThumbnail();
     }
     private void gotoSendPicture(String str){
-        Intent intent = new Intent(mContext, SendPictureActivity.class);
+          Intent intent = new Intent(mContext, SendPictureActivity.class);
         intent.putExtra("path",str);
         startActivity(intent);
     }
@@ -221,15 +221,18 @@ public class PengFragment extends Fragment{
                 holder = (ViewHolder) convertView.getTag();
             }
             DisplayMetrics dm = mContext.getResources().getDisplayMetrics();
-            int width = dm.widthPixels;
+            float width = dm.widthPixels;
+            float height = dm.heightPixels;
             float density = dm.density;
             int item_width = (int)((width-10*density*4)/3);
-            int item_height = (int)(item_width/0.658);
+//            int item_height = (int)(item_width/0.618);
+//            int item_height = (int)(item_width*(height/width));
+            int item_height = item_width;
             AbsListView.LayoutParams param = new AbsListView.LayoutParams(
                     item_width,item_height);//传入自己需要的宽高
             holder.iv.setLayoutParams(param);
             if (position == 0) {
-                holder.iv.setImageResource(R.drawable.take_photo);
+                holder.iv.setImageResource(R.drawable.picture_loading_1);
             } else {
                 position = position - 1;
                 final String item = currentImageFolder.images.get(position);

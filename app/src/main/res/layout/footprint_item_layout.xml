@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+   <ImageView
+       android:id="@+id/footprint_item_imgs"
+       android:layout_margin="@dimen/footprint_margin"
+       android:layout_width="@dimen/footprint_item_img_width"
+       android:src="@drawable/background_picture1"
+       android:scaleType="fitXY"
+       android:layout_height="@dimen/footprint_item_img_height" />
+
+    <LinearLayout
+        android:layout_toRightOf="@+id/footprint_item_imgs"
+        android:layout_width="match_parent"
+        android:layout_alignTop="@+id/footprint_item_imgs"
+        android:layout_alignBottom="@+id/footprint_item_imgs"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/footprint_margin"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="风景"
+            android:layout_marginLeft="5dp"
+            android:paddingLeft="6dp"
+            android:layout_gravity="bottom"
+            android:paddingRight="6dp"
+            android:background="@drawable/text_black_bg"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/home_item_text_size"
+            android:id="@+id/textView5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="四月赏樱花,十月看红叶"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="16dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/footprint_heart"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/heart"
+                android:layout_margin="5dp"
+                android:layout_width="@dimen/xin_heigh"
+                android:layout_height="@dimen/xin_heigh" />
+            <TextView
+                android:layout_alignBottom="@+id/footprint_heart"
+                android:layout_toRightOf="@+id/footprint_heart"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="53"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="一天前"
+                android:layout_margin="5dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/hui_dd"
+                />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/hui_dd"
+        android:layout_marginEnd="@dimen/footprint_margin"
+        android:layout_marginStart="@dimen/footprint_margin"
+        android:layout_below="@+id/footprint_item_imgs"
+        />
+</RelativeLayout>
