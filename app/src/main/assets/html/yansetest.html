@@ -1,0 +1,60 @@
+
+<html>
+<head>
+<title>
+颜色显示
+</title>
+<style type="text/css">
+.centerss {
+
+ margin: auto;
+ text-align: center;
+
+}
+</style>
+<script language='javascript'>
+
+
+function clicke(){
+	var text = document.getElementById('tt').value;
+	//alert(text);
+	document.body.style.backgroundColor=text;
+}
+
+function ms2date(){
+// 	var oDate = new Date();
+// var iM = oDate.getTime();   //得到毫秒数
+// var nDate = new Date(iM0;   //直接将毫秒数当参数传进去。
+// alert(nDate);   //这个时候弹出的就是具体的  星期  月 日 年 时间 的格式了。
+	var text = document.getElementById('ms').value;
+	//alert(text);	
+	var text1 = parseInt(text);
+	var oDate = new Date(text1);	
+	document.getElementById('date').innerHTML = oDate;
+
+	document.getElementById('tes').innerHTML = oDate;
+}
+
+</script>
+</head>
+
+<body bgcolor="#eb984e">
+<div class='centerss' align='center'>
+
+<p>颜色值</p><input id='tt' type='text' value='#eb984e'/>
+
+<input type='button' value='确定' onClick='clicke()'/>
+
+</div>
+
+<div class='centerss' align='center'>
+
+<p>日期转换</p><input id='ms' type='text' value='1468982751120'/>
+
+<input type='button' value='确定' onClick='ms2date()'/>
+<p>时间是：<span id='date'></span></p><br>
+<p id='tes'></p>
+
+</div>
+</body>
+</html>
