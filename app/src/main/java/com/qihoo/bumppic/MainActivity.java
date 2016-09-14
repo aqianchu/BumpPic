@@ -23,4 +23,11 @@ public class MainActivity extends SlidingBaseActivity{
         super.setView();
     }
 
+// private void setHomeMenuTextDrawableTop(TextView textView, Drawable drawable) {
+//         if (textView == null || drawable == null) {
+//             return;
+//         }
+//         textView.setCompoundDrawablesWithIntrinsicBounds(null, drawable, null, null);
+//         textView.invalidate();
+//     }
 }
