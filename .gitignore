@@ -8,3 +8,6 @@
 /captures
 /library/SlidingMenu-master/library/build/
 /library/pulltorefresh/library/build/
+*.[oa]
+
+*~
