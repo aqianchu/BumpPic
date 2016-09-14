@@ -24,12 +24,15 @@ public class BaseFragment extends Fragment implements AdapterView.OnItemClickLis
     private List<Integer> datas;
     PullToRefreshListView ptrListView;
     private Context mContext;
-    View parent;
+    View view;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.base_fragment_layout,container,false);
-        parent = view;
+        if (view==null) {
+            view = inflater.inflate(R.layout.base_fragment_layout,container,false);     
+        }else if(view.getParent()!=null){
+            ((ViewGroup)view.getParent()).removeView(view);
+        }
         return view;
     }
 
@@ -38,7 +41,7 @@ public class BaseFragment extends Fragment implements AdapterView.OnItemClickLis
         super.onActivityCreated(savedInstanceState);
         mContext = getActivity();
         setData();
-        setView(parent);
+        setView(view);
 
     }
     int[] imgs = new int[]{R.drawable.background_picture1,R.drawable.background_picture3,R.drawable.background_picture4,
@@ -51,8 +54,8 @@ public class BaseFragment extends Fragment implements AdapterView.OnItemClickLis
         }
     }
 
-    private void setView(View parent) {
-        ptrListView = (PullToRefreshListView)parent.findViewById(R.id.pulltofreshlistview_home);
+    private void setView(View view) {
+        ptrListView = (PullToRefreshListView)view.findViewById(R.id.pulltofreshlistview_home);
         ptrListView.setAdapter(new HomeAdapter(mContext,datas));
         ptrListView.setMode(PullToRefreshBase.Mode.BOTH);
         ptrListView.setOnItemClickListener(this);
@@ -61,5 +64,13 @@ public class BaseFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+    }
+
+    @Override
+    public void onDestroy() {
+        if (view != null && view.getview() != null) {
+            ((ViewGroup) view.getview()).removeView(view);
+        }
+        super.onDestroy();
     }
 }
