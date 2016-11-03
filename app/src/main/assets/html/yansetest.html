@@ -6,15 +6,37 @@
 </title>
 <style type="text/css">
 .centerss {
-
  margin: auto;
  text-align: center;
-
 }
 </style>
+<!--
+	//自动刷新
+	setInterval(function(){var btn=document.getElementById("btn-refesh");if(!btn) btn.click;},100);
+
+	//刷评论方法：
+	/**
+	setInterval(function(){count = count+1;document.getElementById('answerEditor').value = "geng"+count;$('#answerIt').click();},1000);
+	*/
+在线引用jQuery：
+jQuery：  
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+ 
+jQuery mobile：
+  <link rel="stylesheet"  href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+  
+jQuery UI：
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+ -->
+<!-- <link rel="stylesheet"  href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script language='javascript'>
-
-
 function clicke(){
 	var text = document.getElementById('tt').value;
 	//alert(text);
@@ -35,15 +57,97 @@ function ms2date(){
 	document.getElementById('tes').innerHTML = oDate;
 }
 
+	// $(document).ready(){ 
+	// 	refresh();
+	// }
+	function refresh() {
+		// var timestamp = new Date().getTime();
+		// var t1 = document.getElementById('currenttime');
+		// t1.innerHTML = new Date(parseInt(timestamp));
+		setInterval(function() {
+				var timestamp = new Date().getTime();
+				var t1 = document.getElementById('currenttime');
+				t1.innerHTML = new Date(parseInt(timestamp));
+		},1000);
+	}
+	
+	// window.onload = function onloadFun() {
+		
+	// 	setInterval(function() {
+	// 		// alert('tes');
+	// 		var dang = document.getElementById('dang');
+	// 		dang.innerHTML = new Date(parseInt(new Date().getTime());
+	// 	},1000);
+	// }
+
+	function unicoderf() {
+		var puid = document.getElementById("unicode_id");
+		var puid_tx = document.getElementById("unid_txt");
+		var str = puid_tx.value;
+		str = eval("'"+str+"'");
+		puid.innerHTML = str;
+	}
+
+	function demo() {
+var testLength = document.getElementById('test').value.length;
+document.getElementById("unid_txt").css('width', testLength*5 + 'px');
+}
+
+function zhongwen() {
+	var text = document.getElementById("unid_test");
+	var str = text.value;
+	str = escape(str);
+	var zheng = new RegExp("%","g");
+	str = str.replace(zheng,"\\");
+	var test_zhongwen = document.getElementById("test_zhongwen");
+	test_zhongwen.innerHTML = str;
+	
+}
+
+document.onkeydown = function(event_e){    
+        if(window.event)    
+         event_e = window.event;    
+         var int_keycode = event_e.charCode||event_e.keyCode;    
+         if(int_keycode ==13){   // enter 键
+          document.getElementById("click_yanse").click();
+        } else if (int_keycode == 27) { // 按 Esc 
+        	window.opener=null;window.close();
+        };
+    }   
+
+    /*
+   日期格式2008-05-04
+*/
+//计算两个日期的相差天数
+function DateDiff(startDate, endDate){
+   var aDate, oDate1, oDate2, iDays ;
+   aDate = startDate.split('-');
+   oDate1 = new Date(aDate[1]+'-'+aDate[2]+'-'+aDate[0]) ;
+   aDate = endDate.split('-');
+   oDate2 = new Date(aDate[1]+'-'+ aDate[2] +'-'+aDate[0]);
+   iDays = parseInt(Math.abs(oDate1 -oDate2)/1000/60/60/24); //把相差的毫秒数转换为天数
+   return iDays ;
+}
+
+function computeDay () {
+	var day1 = document.getElementById('startday');
+	var day2 = document.getElementById('endday');
+	var startDate = day1.value;
+	var endDate = day2.value;
+	//alert(startDate);
+	var tianshu = DateDiff(startDate,endDate);
+	alert("相隔的天数是："+tianshu+"天");
+}
+//alert(DateDiff('2009-05-02', '2009-06-02'));
 </script>
 </head>
 
 <body bgcolor="#eb984e">
 <div class='centerss' align='center'>
 
-<p>颜色值</p><input id='tt' type='text' value='#eb984e'/>
+<p>颜色值</p><input id='tt' type='text' value='#00CA00'/>
 
-<input type='button' value='确定' onClick='clicke()'/>
+<input type='button' value='确定' onClick='clicke()' id="click_yanse"/>
 
 </div>
 
@@ -55,6 +159,106 @@ function ms2date(){
 <p>时间是：<span id='date'></span></p><br>
 <p id='tes'></p>
 
+<span>当前时间是:</span><span id="currenttime"></span><input type="button" name="shuaxu" onclick="refresh()" value="显示当前时间"><br/>
+<br/>
+<p id="dang"></p>
+
+<p>Unicode Utils</p>
+<input value="\u795e\u5668\u5728\u624b\uff0c\u8f66\u7968\u6211\u6709" type="text" id="unid_txt" onkeypress="demo()" /><br/>
+<p id="unicode_id"></p><input type="button" value="Unicode转中文" onclick="unicoderf()" />
+<br/>
+<input type="text" value="测试" id="unid_test"/><p id="test_zhongwen"></p><input type="button" id="unide_test_refresh" value="中文转Unicode" onclick="zhongwen()"/>
+
+<input type="text" onkeydown="this.onkeyup();" onkeyup="this.size=(this.value.length>10?this.value.length*2:10)" size="10"  value="测试自适应text"/>
+<br/>
+<input type="text" id='startday' value='2015-11-22'/><br/>
+<input type="text" id='endday' value='2016-9-26'/><br/>
+<input type="button" id="computedis" value="计算天数" onclick="computeDay();"/>
 </div>
 </body>
 </html>
+
+<!--视频播放其中的src表示视频的地址
+<video width="320" height="240" controls autoplay>
+  <source src="movie.ogg" type="video/ogg">
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.webm" type="video/webm">
+  <object data="movie.mp4" width="320" height="240">
+    <embed width="320" height="240" src="movie.swf">
+  </object>
+</video>
+
+-->
+
+<!--
+	自动滚动网页
+
+	function scrollWindow(){
+		window.scrollBy(0,+2)；
+		setTimeout("scrollWindow();",10)
+	};
+
+<html>
+<head>
+<meta http-equiv="content-Type" content="text/html;charset=gb2312">
+<meta name="keywords" content="站长,网页特效,js特效,js脚本,脚本,广告代码,zzjs,zzjs.net,sky,www.zzjs.net,站长特效 网" />
+<meta name="description" content="www.zzjs.net,站长特效网，站长必备js特效及广告代码。大量高质量js特效，提供高质量广告代码下载,尽在站长特效网" />
+<title>网页特效-页面自动上下滚屏 站长特效网欢迎您。</title>
+<SCRIPT language=JavaScript>
+
+var scrollY = 0;
+var maxY=700;
+var direction=0
+function scrollWindow()
+  {//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+  if (direction == 0)
+  {
+  window.scrollBy(0,+1);
+  if ( scrollY > maxY )
+  direction=1
+  else
+  scrollY=scrollY + 1;
+  }
+  else
+  {
+  window.scrollBy(0,-1);
+  if ( scrollY == 0 )
+  direction=0
+  else
+  scrollY=scrollY - 1;
+  }
+  setTimeout("scrollWindow()", 10);
+  }//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+// 
+</SCRIPT>
+</head>
+<body onload="scrollWindow()">
+<a href="http://www.zzjs.net/">站长特效网</a>,站长必备的高质量网页特效和广告代码。zzjs.net，站长js特效。<hr>
+欢迎来到站长特效网，我们网站收集大量高质量js特效，提供许多广告代码下载，网址：www.zzjs.net，zzjs@msn.com,用.net打造靓站
+看到了吗
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>呵呵，屏幕自动滚动。zzjs net<br><br><br><br><br><br><br><br><br><br><br><br><br>站长特效网，打造国内最帅的网页特效站！<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>站长特效网欢迎您。<br>
+</body>
+</html>
+-->
+
+<!--
+js下载图片
+
+<script type="text/javascript"> 
+function savepic() { 
+if (document.all.a1 == null) { 
+objIframe = document.createElement("IFRAME"); 
+document.body.insertBefore(objIframe); 
+objIframe.outerHTML = "<iframe name=a1 style='width:400px;hieght:300px' src=" + imageName.href + "></iframe>"; 
+re = setTimeout("savepic()", 1) 
+} 
+else { 
+clearTimeout(re) 
+pic = window.open(imageName.href, "a1") 
+pic.document.execCommand("SaveAs") 
+document.all.a1.removeNode(true) 
+} 
+} 
+</script> 
+
+	-->
